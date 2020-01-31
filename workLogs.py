@@ -46,6 +46,9 @@ def dailyWork():
 	options = [0] * 6
 	#Creates Iterable
 	for num in action:
+		if int(num) > 5:
+			cprint("Number entered above 5", "red") 
+			break
 		options[int(num)] += 1
 	if(path.exists("hours.pkl")): 
 		with open("hours.pkl", 'rb') as f:
