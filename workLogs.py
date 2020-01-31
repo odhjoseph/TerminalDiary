@@ -13,12 +13,7 @@ import matplotlib.pyplot as plt
 from os import path
 from datetime import date
 from termcolor import colored, cprint
-
-# def terminalGraph(data):
-# 	tfig = tpl.figure()
-# 	x_Values = [0, 1, 2, 3, 4, 5]
-# 	tfig.hist(x_Values, data, grid=[30, 55], force_ascii=True)
-# 	tfig.show()
+import termplotlib as tpl #requires numpy
 
 def drawPie(data):
 	labels = ('downtime', 'passion projects', 'AWS', 'Meetings', 'Networking', 'Not related team work')
@@ -57,6 +52,13 @@ def dailyWork():
 			savedHours = pickle.load(f)
 		newHours = [x + y for x, y in zip(options, savedHours)]
 		dumpList(newHours) #check overWrite
+		fig = tpl.figure()
+		fig.barh(
+			newHours,
+			["Downtime", "Passion Proj", "AWS", "Meetings", "Networking", "Other Teams"],
+			force_ascii=True
+			)
+		fig.show()
 	else:
 		dumpList(options)
 		print("\nFile Doens't Exist, created file hours.txt")
@@ -107,9 +109,7 @@ def writeJson():
 
 def titleScreen():
 	os.system('clear')
-	text = colored("***********************************" + 
-		"************************ Another Day of " +
-		+ "Work Done ***********************************************************", 'green', attrs=['blink', 'underline'])
+	text = colored("*********************************************************** Another Day of Work Done ***********************************************************", 'green', attrs=['blink', 'underline'])
 	print(text)
 
 
@@ -124,7 +124,7 @@ while True:
 	elif choice == 2:
 		writeJson()
 	elif choice == 3:
-		cprint("Generating Graphs...", "green", attrs=['blink'])
+		cprint("Generating Pie graph...", "green", attrs=['blink'])
 		with open("hours.pkl", 'rb') as f:
 			data = pickle.load(f)
 		drawPie(data)
