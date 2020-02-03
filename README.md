@@ -5,5 +5,5 @@
 * More Descriptive Entry
 * Generate Pie Graph of all General Usage
 
-
+![Image of Terminal] (github.com/odhjoseph/TerminalDiary/extraImages/example.png)
  
