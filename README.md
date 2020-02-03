@@ -1,6 +1,6 @@
 # TerminalDiary
 *My own personal diary I run from Terminal for understanding of my day.*
-## Future Implementations 
+#### Future Implementations 
  1. RSSFEED titles/semantics on market mood
  1. WordFreq on markets
  1. Inspirational Quote
